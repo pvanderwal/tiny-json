@@ -6,8 +6,8 @@
 see https://github.com/rafagafe/tiny-json for original version of tiny-json
 
 tiny-jsonPath
-Extends tiny-json to add simple jsonPath search expressions (see https://www.npmjs.com/package/jsonpath)"
-Currently only supports the '.' "Child member operator", i.e. $.parent.child
+Extends tiny-json to add simple jsonPath search expressions (see https://www.npmjs.com/package/jsonpath)
+Currently only supports the '.' "Child member operator", searchs i.e. $.parent.child.etc
 
 # API
 To seach json_string for a particular field using jsonPath()
