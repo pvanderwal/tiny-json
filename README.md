@@ -10,7 +10,7 @@ Extends tiny-json to add simple jsonPath search expressions (see https://www.npm
 Currently only supports the '.' "Child member operator", i.e. $.parent.child
 
 # API
-To seach json_string for a particular field using jsonPath
+To seach json_string for a particular field using jsonPath()
 
 ```C
 char json_string[] = "{\n"
