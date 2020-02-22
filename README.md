@@ -9,6 +9,8 @@ tiny-jsonPath
 Extends tiny-json to add simple jsonPath search expressions (see https://www.npmjs.com/package/jsonpath)
 Currently only supports the '.' "Child member operator", searchs i.e. $.parent.child.etc
 
+Like tiny-json this project has no external dependencies.
+
 # API
 To seach json_string for a particular field using jsonPath()
 
