@@ -40,7 +40,8 @@ main(int argc, char *argv[])
         printf("path %s : Error not found or not a real number", argv[1]);
     } else {
         val = 1 > result ? result*1000.0 : result;
-        printf("\n\nSearching\n %s \nUsing jsonPath expression: %s.\n\nThe result as an Integer ( *1000 if less than 1) = %d\n and as a floating point value
+        printf("\n\nSearching\n %s \nUsing jsonPath expression: %s.\n\nThe result as an Integer ( *1000 if less than 1) = %d\n and as a floating point value = (%f)\n\n", str, argv[1], val, result);
+
     }
 
     return EXIT_SUCCESS;
