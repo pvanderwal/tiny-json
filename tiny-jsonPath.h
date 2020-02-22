@@ -167,6 +167,12 @@ struct jsonPool_s {
   *         This property is always unnamed and its type is JSON_OBJ. */
 json_t const* json_createWithPool( char* str, jsonPool_t* pool );
 
+json_t const* jsonPath(char *jsonS, char *jPath);
+
+double realPath(char *jsonS, char *jPath);
+
+char const* strPath (char *jsonS, char *jPath);
+     
 /** @ } */
 
 #ifdef __cplusplus
