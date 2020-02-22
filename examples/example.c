@@ -1,5 +1,5 @@
 /* To use enter the jsonPath expression on the command line. 
-e.g.  example .ENERGY.Yesterday
+e.g.  ./example .ENERGY.Yesterday
 */
 
 #include <stdio.h>
@@ -32,9 +32,6 @@ main(int argc, char *argv[])
                 "}";
 
     double result = realPath(str, argv[1]);
-
-
-    puts( str );
 
     if (NAN == result){
         printf("path %s : Error not found or not a real number", argv[1]);
