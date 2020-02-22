@@ -29,6 +29,7 @@
 
 #include <string.h>
 #include <ctype.h>
+#include <math.h>
 #include "tiny-json.h"
 
 /** Structure to handle a heap of JSON properties. */
@@ -460,4 +461,61 @@ static char* setToNull( char* ch ) {
 /** Indicate if a character is the end of a primitive value. */
 static bool isEndOfPrimitive( char ch ) {
     return ch == ',' || isOneOfThem( ch, blank ) || isOneOfThem( ch, endofblock );
+}
+
+#define MAX_ELEMENTS 100
+
+/* simple jsonPath search */
+json_t const*
+jsonPath (char *jsonS, char *jPath)
+{
+    json_t const* json;
+    json_t mem[MAX_ELEMENTS];
+    char *jsonPath[MAX_ELEMENTS];
+    char *str;
+    char *ptr;
+    int lp, pCnt=0;
+
+
+    str = malloc( (strlen(jPath)+1) * sizeof(char) );
+    strcpy(str, jPath);
+    ptr=str;
+
+//    printf("Searching for %s in \n %s \n",  ptr, jsonS);
+    while( (ptr=strchr(ptr,'.')) ) {
+        *ptr = '\0';
+        jsonPath[pCnt]=++ptr;
+        pCnt++;
+    }
+
+    json = json_create( jsonS, mem, sizeof(mem) / sizeof(*mem) );
+    if ( !json ) {
+        return NULL;
+    }
+
+    for (lp=0;lp<pCnt;lp++){
+        json =  json_getProperty( json, jsonPath[lp]);
+        if (NULL == json)
+            return NULL;
+    }
+
+    return json;
+}
+
+double
+realPath (char *jsonS, char *jPath)
+{
+        json_t const* json = jsonPath (jsonS, jPath);
+        if ( json == NULL )
+        return NAN;
+        return json_getReal(json);
+}
+
+char const*
+strPath (char *jsonS, char *jPath)
+{
+        json_t const* json = jsonPath (jsonS, jPath);
+        if ( json == NULL )
+        return '\0';
+        return json_getValue( json );
 }
