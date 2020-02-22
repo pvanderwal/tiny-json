@@ -30,7 +30,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <math.h>
-#include "tiny-json.h"
+#include "tiny-jsonPath.h"
 
 /** Structure to handle a heap of JSON properties. */
 typedef struct jsonStaticPool_s {
