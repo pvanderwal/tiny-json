@@ -6,7 +6,7 @@ e.g.  example .ENERGY.Yesterday
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include "../tiny-json.h"
+#include "../tiny-jsonPath.h"
 
 /* Parser a json string. */
 
