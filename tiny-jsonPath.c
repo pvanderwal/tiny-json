@@ -467,21 +467,20 @@ static bool isEndOfPrimitive( char ch ) {
 
 /* simple jsonPath search */
 json_t const*
-jsonPath (char *jsonS, char *jPath)
+jsonPath (char *jsonStr, char *jPath)
 {
     json_t const* json;
     json_t mem[MAX_ELEMENTS];
     char *jsonPath[MAX_ELEMENTS];
-    char *str;
+    char *str = malloc( (strlen(jPath)+1) * sizeof(char) );
+    char *jsonS = malloc( (strlen(jsonStr)+1) * sizeof(char) );
     char *ptr;
     int lp, pCnt=0;
 
-
-    str = malloc( (strlen(jPath)+1) * sizeof(char) );
+    strcpy(jsonS, jsonStr);
     strcpy(str, jPath);
     ptr=str;
-
-//    printf("Searching for %s in \n %s \n",  ptr, jsonS);
+	
     while( (ptr=strchr(ptr,'.')) ) {
         *ptr = '\0';
         jsonPath[pCnt]=++ptr;
